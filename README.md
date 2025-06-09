@@ -1,7 +1,7 @@
 # CUNEX
 CUNEX is a generalizable segmentation model based on the nnU-Net framework for full corneal segmentation from AS-OCT images, validated on healthy, keratoconus, Fuchs dystrophy and infectious keratitis eyes.
 
-# 🚀 Quickstart
+# 👁️ Quickstart
 1. Clone this repo
 2. Download model weights and save in `nnunet_trained_model/`
 3. Set environment variables
