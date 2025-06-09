@@ -3,11 +3,12 @@ CUNEX is a generalizable segmentation model based on the nnU-Net framework for f
 
 # 👁️ Quickstart
 1. Clone this repo
-2. Download model weights and save in `nnunet_trained_model/`
-3. Set environment variables
-4. Format your dataset under `nnUNet_raw/`
-5. Preprocess with `data_prep.ipynb`
-6. Run inference using `inference.py`
+2. Create a venv and install 'requirements.txt'
+3. Download model weights and save in `nnunet_trained_model/`
+4. Set environment variables
+5. Format your dataset under `nnUNet_raw/`
+6. Preprocess with `data_prep.ipynb`
+7. Run inference using `inference.py`
 
 # System Requirements
 Install python dependencies via:
