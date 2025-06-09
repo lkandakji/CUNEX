@@ -1,5 +1,6 @@
 # CUNEX
 CUNEX is a generalizable segmentation model based on the nnU-Net framework for full corneal segmentation from AS-OCT images, validated on healthy, keratoconus, Fuchs dystrophy and infectious kerititis eyes.
+
 # System Requirements
 **Python Dependencies**
 ```
@@ -146,12 +147,31 @@ wheel                         0.45.1
 wrapt                         1.17.2
 yacs                          0.1.8
 ```
+# Environment Variables
+CUNEX requires some environment variables so that it always knows where the raw data and trained models are. Depending on the operating system, these environment variables need to be set in different ways. These are instructions for Linux & MacOS:
+
+Locate the ```.bashrc``` file in your home folder and add the following lines to the bottom:
+```
+export nnUNet_raw="{working_dir}/nnUNet_raw"
+export nnUNet_results="{working_dir}/nnUNet_results"
+```
+Then execute echo ${nnUNet_raw} etc to check that its been done. Or you can simply execute the following lines whenever you run CUNEX in terminal.
+
 # Data Prep
 The only way to run inference with CUNEX is by storing it in the nnU-Net format.
-1. You must add a directory ```/dataset``` where you will create two subdirectories ```nnunet_trained_model``` and ```nnunet_raw/nnunet_raw_data```.
+1. You must add a directory ```{working_dir}/dataset``` where you will create two subdirectories ```nnunet_trained_model``` and ```nnunet_raw```.
 2. In ```/nnunet_trained_model``` you will save the model weights file.
-3. In ```/nnunet_raw_data``` you will make directories for your dataset in the format ```/Dataset0001_{name of dataset}```.
-4. Preprocess your image dataset directory ```data_prep.ipynb```. CUNEX expects the same file format for images that it was trained on (png). BMP and WEBP conversion functions are available, but you may easily add a cell for whichever extension conversion is necessary.
+3. In ```/nnunet_raw``` you will make directories for your dataset(s) in the format ```/Dataset0001_{name of dataset}``` like:
+```
+  nnUNet_raw/
+├── Dataset001_BrainTumour
+├── Dataset002_Heart
+├── Dataset003_Liver
+├── Dataset004_Hippocampus
+├── Dataset005_Prostate
+├── ...
+```
+5. Preprocess your image dataset directory ```data_prep.ipynb```. CUNEX expects the same file format for images that it was trained on (png). BMP and WEBP conversion functions are available, but you may easily add a cell for whichever extension conversion is necessary.
 
 # Run
 Run interference with ```nnunetv2/inference/inference.py```. Be sure to change paths where specified. The predicted masks are binary, so an addtional directory ```/Dataset0001_imagesTs_pred_vis``` is made with visible masks for your viewing.
