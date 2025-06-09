@@ -27,7 +27,7 @@ if __name__ == '__main__':
     predictor.initialize_from_trained_model_folder(
         join(nnUNet_results, 'MODEL DIRECTORY HERE'),
         use_folds=(1,),
-        checkpoint_name='checkpoint_best.pth',
+        checkpoint_name='cunex.pth',
     )
     # variant 1: give input and output folders
     predicted_segmentations = predictor.predict_from_files(join(nnUNet_raw, 'RAW IMAGE PATH HERE'),
