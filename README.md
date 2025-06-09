@@ -47,7 +47,7 @@ The only way to run inference with CUNEX is by storing it in the nnU-Net format.
 │   └── ...
 ```
 
-5. Preprocess your image dataset directory using ```data_prep.ipynb```. The model expects the same file format for images that it was trained on (png). BMP and WEBP conversion functions are available, but you may easily add a cell for whichever extension conversion is necessary.
+5. Preprocess your image dataset directory using the ```data_prep.ipynb``` notebook. The model expects the same file format for images that it was trained on (png). Conversion functions for BMP and WEBP are already included, and you can easily add a new cell to handle other file formats if needed.
 
 # Run
 Run inference with ```nnunetv2/inference/inference.py```. Be sure to change paths where specified. The predicted masks are binary, so an additional directory ```/Dataset0001_imagesTs_pred_vis``` is made with visible masks for your viewing.
