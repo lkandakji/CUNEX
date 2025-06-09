@@ -10,8 +10,7 @@ CUNEX is a generalizable segmentation model based on the nnU-Net framework for f
 6. Run inference using `inference.py`
 
 # System Requirements
-**Python Dependencies**
-Install packages via:
+Install python dependencies via:
 ```
 pip install -r requirements.txt
 
