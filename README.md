@@ -3,7 +3,7 @@ CUNEX is a generalizable segmentation model based on the nnU-Net framework for f
 
 # 👁️ Quickstart
 1. Clone this repo
-2. Create a venv and install 'requirements.txt'
+2. Create a venv and install `requirements.txt`
 3. Download model weights and save in `nnunet_trained_model/`
 4. Set environment variables
 5. Format your dataset under `nnUNet_raw/`
