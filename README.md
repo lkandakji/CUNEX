@@ -13,8 +13,9 @@ CUNEX is a generalizable segmentation model based on the nnU-Net framework for f
 Install python dependencies via:
 ```
 pip install -r requirements.txt
-
 ```
+It's recommended to do this inside a virtual environment (e.g., venv or conda) to avoid conflicts with system packages.
+
 # Environment Variables
 CUNEX requires some environment variables so that it always knows where the raw data and trained models are. They only need to be set once. These are instructions for Linux & MacOS:
 
