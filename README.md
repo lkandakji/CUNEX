@@ -148,7 +148,7 @@ yacs                          0.1.8
 ```
 # Data Prep
 The only way to run inference with CUNEX is by storing it in the nnU-Net format.
-1. You must add a directory ```/dataset``` where you will create two subdirectories ```nnunet_trained_model``` and dataset/nnunet_raw/nnunet_raw_data```.
+1. You must add a directory ```/dataset``` where you will create two subdirectories ```nnunet_trained_model``` and ```dataset/nnunet_raw/nnunet_raw_data```.
 2. In ```/nnunet_trained_model``` you will save the model weights file.
 3. In ```/nnunet_raw_data``` you will make directories for your dataset in the format ```/Dataset0001_{name of dataset}```.
 4. Preprocess your image dataset directory ```data_prep.ipynb```. CUNEX expects the same file format for images that it was trained on (png). BMP and WEBP conversion functions are available, but you may easily add a cell for whichever extension conversion is necessary.
