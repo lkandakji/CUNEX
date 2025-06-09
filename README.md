@@ -157,6 +157,9 @@ export nnUNet_results="{working_dir}/nnUNet_results"
 ```
 Then execute echo ${nnUNet_raw} etc to check that its been done. Or you can simply execute the following lines whenever you run CUNEX in terminal.
 
+# Model Weights
+The CUNEX trained model weights file can be downloaded from the release here https://github.com/lkandakji/CUNEX/releases/download/v1.0/cunex.pth.
+
 # Data Prep
 The only way to run inference with CUNEX is by storing it in the nnU-Net format.
 1. You must add a directory ```{working_dir}/dataset``` where you will create two subdirectories ```nnunet_trained_model``` and ```nnunet_raw```.
