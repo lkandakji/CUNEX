@@ -22,7 +22,7 @@ CUNEX requires some environment variables so that it always knows where the raw 
 Locate the ```.bashrc``` file in your home folder and add the following lines to the bottom:
 ```
 export nnUNet_raw="{working_dir}/nnUNet_raw"
-export nnUNet_results="{working_dir}/nnUNet_results"
+export nnUNet_results="{working_dir}/nnunet_trained_model"
 ```
 Then execute echo ${nnUNet_raw} etc to check the path is correct. Or you can simply execute the following lines whenever you run CUNEX in a new terminal.
 
