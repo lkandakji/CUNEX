@@ -54,8 +54,8 @@ The only way to run inference with CUNEX is by storing it in the nnU-Net format.
 Run inference with ```nnunetv2/inference/inference.py```. Be sure to change paths where specified. The predicted masks are binary, so an additional directory ```/Dataset0001_imagesTs_pred_vis``` is made with visible masks for your viewing.
 
 # External Validation
-An AS-OCT image dataset for segmentation is made available here: https://springernature.figshare.com/collections/AIDK_An_AS-OCT_image_dataset_for_deep_learning-enabled_segmentation_and_3D_reconstruction_for_keratitis/7036994/1
+An AS-OCT image dataset for segmentation is made available here:  https://doi.org/10.6084/m9.figshare.c.7036994.v1
 It contains a total of 1168 AS-OCT images of patients with keratitis, including 768 full-frame images (6 patients). Each image has associated segmentation labels for lesions and cornea, and also labels of iris for full-frame images.
-Citation: Ye, Juan (2024). AIDK: An AS-OCT image dataset for deep learning-enabled segmentation and 3D reconstruction for keratitis. figshare. Collection. https://doi.org/10.6084/m9.figshare.c.7036994.v1
+Citation: Ye, Juan (2024). AIDK: An AS-OCT image dataset for deep learning-enabled segmentation and 3D reconstruction for keratitis. figshare. Collection.
 
 Although our data is not available publically, you may get in contact with me at smgxlk0@ucl.ac.uk to discuss potential collaborations.
