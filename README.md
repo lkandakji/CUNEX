@@ -40,11 +40,11 @@ The only way to run inference with CUNEX is by storing it in the nnU-Net format.
 ├── nnunet_trained_model/
 │   └── cunex.pth
 ├── nnunet_raw/
-│   └── Dataset001_Glioblastoma/
+│   └── Dataset001_Keratoconus/
 │       ├── imagesTs/
 │       ├── imagesTs_pred/
 │       └── imagesTs_pred_vis/
-│   └── Dataset001_Glaucoma/
+│   └── Dataset001_FECD/
 │   └── ...
 ```
 
