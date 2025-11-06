@@ -59,7 +59,7 @@ The CUNEX trained model weights file can be downloaded from the release here htt
 The only way to run inference with CUNEX is by storing it in the nnU-Net format.
 1. You must create two directories ```nnunet_trained_model``` and ```nnunet_raw```.
 2. In ```/nnunet_trained_model``` you will save the model weights file ```cunex.pth``` and json files ```plans.json``` and ```dataset.json```.
-3. In ```/nnunet_raw``` you will make directories for your dataset(s) in the format ```/Dataset0001_{name of dataset}```. You can create the ```imagesTs``` subdirectories yourself or let the code create them during inference. Your directory will look like this:
+3. In ```/nnunet_raw``` you will make directories for your dataset(s) in the format ```/Dataset0001_{name of dataset}```. You can create the ```imagesTs``` subdirectories yourself or let the code create them during inference. You will save your images in the ```imagesTs``` directory. Your directory will look like this:
 ```
 {working_dir}/
 ├── nnunet_trained_model/
