@@ -20,14 +20,37 @@ pip install -r requirements.txt
 It's recommended to do this inside a virtual environment (e.g., venv or conda) to avoid conflicts with system packages.
 
 # Environment Variables
-CUNEX requires some environment variables so that it always knows where the raw data and trained models are. They only need to be set once. These are instructions for Linux & MacOS:
+CUNEX requires some environment variables so that it always knows where the raw data and trained models are. They only need to be set **once**.
 
-Locate the ```.bashrc``` file in your home folder and add the following lines to the bottom:
+For Linux & macOS Users:
+1. Locate your shell configuration file, depending on your shell:
+
+   * bash: ~/.bashrc or ~/.bash_profile
+   * zsh (default on macOS): ~/.zshrc
+  
+2. Add the following lines to the bottom of the file, replacing {working_dir} with your actual path.
+   ```
+   export nnUNet_raw="{working_dir}/nnUNet_raw"
+   export nnUNet_results="{working_dir}/nnunet_trained_model"
+   ```
+3. Apply the changes
+   ```
+   source ~/.zshrc     # if using zsh
+   # or
+   source ~/.bashrc    # if using bash
+   ```
+4. Verify the setup, each command below should print the corresponding directory path.
+   ```
+   echo $nnUNet_raw
+   echo $nnUNet_results
+   ```
+Temporary (Session-Only) Setup
+
+If you prefer not to modify your shell configuration file, you can simply run these lines in your terminal each time before using CUNEX:
 ```
 export nnUNet_raw="{working_dir}/nnUNet_raw"
 export nnUNet_results="{working_dir}/nnunet_trained_model"
 ```
-Then execute echo ${nnUNet_raw} etc to check the path is correct. Or you can simply execute the following lines whenever you run CUNEX in a new terminal.
 
 # Model Weights
 The CUNEX trained model weights file can be downloaded from the release here https://github.com/lkandakji/CUNEX/releases/download/v1.0/cunex.pth.
