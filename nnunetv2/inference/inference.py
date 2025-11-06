@@ -25,19 +25,20 @@ if __name__ == '__main__':
     
     # initializes the network architecture, loads the checkpoint
     predictor.initialize_from_trained_model_folder(
-        join(nnUNet_results, 'MODEL DIRECTORY HERE'),
-        use_folds=(1,),
+        '2d_fullres path', # REPLACE
+        use_folds=(0,),
         checkpoint_name='cunex.pth',
     )
+    
     # variant 1: give input and output folders
-    predicted_segmentations = predictor.predict_from_files(join(nnUNet_raw, 'RAW IMAGE PATH HERE'),
-                                 join(nnUNet_raw, 'OUTPUT PATH HERE'),
+    predicted_segmentations = predictor.predict_from_files(join(nnUNet_raw, 'imagesTs_renamed path here'),
+                                 join(nnUNet_raw, 'imagesTs_pred path here'),
                                  save_probabilities=False, overwrite=False,
                                  num_processes_preprocessing=2, num_processes_segmentation_export=2,
                                  folder_with_segs_from_prev_stage=None, num_parts=1, part_id=0)
 
     # to see the masks
-    input_dir = "PREDICTIONS OUTPUT PATH HERE"
+    input_dir = "imagesTs_pred path here"
     output_dir = input_dir + "_vis"
 
     os.makedirs(output_dir, exist_ok=True)
