@@ -32,6 +32,7 @@ For Linux & macOS Users:
    ```
    export nnUNet_raw="{working_dir}/nnUNet_raw"
    export nnUNet_results="{working_dir}/nnunet_trained_model"
+   export nnUNet_preprocessed="{working_dir}/nnUNet_preprocessed" # not needed but just to supress the warning
    ```
 3. Apply the changes
    ```
@@ -50,6 +51,7 @@ If you prefer not to modify your shell configuration file, you can simply run th
 ```
 export nnUNet_raw="{working_dir}/nnUNet_raw"
 export nnUNet_results="{working_dir}/nnunet_trained_model"
+export nnUNet_preprocessed="{working_dir}/nnUNet_preprocessed"
 ```
 
 # Model Weights
@@ -58,14 +60,16 @@ The CUNEX trained model weights file can be downloaded from the release here htt
 # Preparing your data
 The only way to run inference with CUNEX is by storing it in the nnU-Net format.
 1. You must create two directories ```nnunet_trained_model``` and ```nnunet_raw```.
-2. In ```/nnunet_trained_model``` you will save the model weights file ```cunex.pth``` and json files ```plans.json``` and ```dataset.json```.
+2. In ```/nnunet_trained_model``` you will create a directory ```2_fullres``` and save the json files ```plans.json``` and ```dataset.json```. Under ```2_fullres``` create another directory ```fold_0```and save the model weights file ```cunex.pth```
 3. In ```/nnunet_raw``` you will make directories for your dataset(s) in the format ```/Dataset0001_{name of dataset}```. You can create the ```imagesTs``` subdirectories yourself or let the code create them during inference. You will save your images in the ```imagesTs``` directory. Your directory will look like this:
 ```
 {working_dir}/
 ├── nnunet_trained_model/
-│   └── cunex.pth
-│   └── plans.json
-│   └── dataset.json
+│   └── 2d_fullres
+│        └── fold_0
+│           └──cunex.pth
+│       ├── plans.json
+│       └── dataset.json
 ├── nnunet_raw/
 │   └── Dataset001_Keratoconus/
 │       ├── imagesTs/
@@ -75,14 +79,16 @@ The only way to run inference with CUNEX is by storing it in the nnU-Net format.
 │   └── ...
 ```
 
-5. Preprocess your image dataset directory using the ```data_prep.ipynb``` notebook. The model expects the same file format for images that it was trained on (png). Conversion functions for BMP and WEBP are already included, and you can easily add a new cell to handle other file formats if needed.
+5. Preprocess your image dataset directory using the ```data_prep.ipynb``` notebook. The model expects the same file format for images that it was trained on (png). Conversion functions for BMP and WEBP are already included, and you can easily add a new cell to handle other file formats if needed. This should create a new directory ```imagesTs_renamed``` along with a ```name_mapping.csv```.
 
 # Run
-Run inference with ```nnunetv2/inference/inference.py```. Be sure to change paths where specified. The predicted masks are binary, so an additional directory ```/Dataset0001_imagesTs_pred_vis``` is made with visible masks for your viewing.
+Run inference with ```nnunetv2/inference/inference.py```. Be sure to change paths where specified (using ```imagesTs_renamed``` as the input image path for predictions. The predicted masks are binary, so an additional directory ```/Dataset0001_imagesTs_pred_vis``` is made with visible masks for your viewing.
 
 # External Validation
 An AS-OCT image dataset for segmentation is made available here:  https://doi.org/10.6084/m9.figshare.c.7036994.v1
 It contains a total of 1168 AS-OCT images of patients with keratitis, including 768 full-frame images (6 patients). Each image has associated segmentation labels for lesions and cornea, and also labels of iris for full-frame images.
 Citation: Ye, Juan (2024). AIDK: An AS-OCT image dataset for deep learning-enabled segmentation and 3D reconstruction for keratitis. figshare. Collection.
+
+Another AS-OCT image dataset is available here: https://github.com/Legolas970424/CorneaNet/blob/master/data.rar. It contains overall 50 images of both healthy eyes and eyes with keratoconus. The exact split is not clear, but the authors note the images come from 72 eyes of 36 healthy subjects and 70 eyes of 57 patients with keratoconus. Measurements were taken using an ultra-high resolution OCT (UHR-OCT) system previously published here: https://opg.optica.org/boe/fulltext.cfm?uri=boe-8-2-1221. 
 
 Although our data is not available publically, you may get in contact with me at smgxlk0@ucl.ac.uk to discuss potential collaborations.
